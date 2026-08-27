@@ -38,8 +38,11 @@ function splitSections(markdown: string) {
   const result: Record<string, string> = {};
   const parts = markdown.split(/^##\s+/m).filter(Boolean);
   for (const part of parts) {
-    const [heading, ...rest] = part.split("\n");
-    const key = SECTIONS.find((s) => heading.trim().toLowerCase().startsWith(s.split(" ")[0].toLowerCase()));
+    const [heading = "", ...rest] = part.split("\n");
+    const key = SECTIONS.find((s) =>
+      heading.trim().toLowerCase().startsWith((s.split(" ")[0] ?? "").toLowerCase()),
+    );
+
     if (key) result[key] = rest.join("\n").trim();
   }
   return result;
