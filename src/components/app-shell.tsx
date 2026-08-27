@@ -66,15 +66,16 @@ export function AppShell({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen w-full bg-background">
       {/* Sidebar - desktop */}
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-sidebar-border bg-sidebar px-3 py-4 md:flex">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-sidebar-border bg-[image:var(--gradient-surface)] px-3 py-4 md:flex">
         <div className="flex items-center gap-2 px-2 pb-6">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground">
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground shadow-[var(--shadow-card)]">
             <Sparkles className="h-4 w-4" />
           </span>
           <span className="min-w-0 truncate text-sm font-semibold text-sidebar-foreground">
             Workplace AI
           </span>
         </div>
+
         <nav className="flex flex-1 flex-col gap-1">
           {navItems.map((item) => (
             <Link
