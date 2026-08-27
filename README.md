@@ -1,72 +1,52 @@
-# AI Workplace Hub
+AI Workplace Productivity Assistant
 
-Build a modern, responsive web application called AI Workplace Productivity Assistant a single dashboard-style platform that helps professionals automate everyday workplace tasks using AI.
+An AI-powered productivity dashboard that helps professionals automate common workplace tasks — drafting emails, summarizing meetings, planning schedules, researching topics, and getting quick help from an AI assistant — all in one integrated platform.
 
-Overall structure:
+Live Demo
 
-A persistent sidebar with navigation icons/labels for: Dashboard (home), Email Generator, Meeting Notes Summarizer, Task Planner, and Settings.
+🔗 https://mind-work-suite.lovable.app
 
-A top header bar with the app name/logo and a "Responsible AI" info icon that opens a short disclaimer modal.
+Project Overview
 
-A dashboard/home view showing quick-access cards to each of the three tools plus a short usage tip for each.
+Built as part of the CAPACITI coursework project, this application demonstrates practical AI implementation, structured prompt engineering, and responsible AI usage within a modern, professional dashboard UI. Rather than three separate tools, this is a single platform where each feature is a tab/section sharing the same design system and navigation.
 
-Fully responsive: sidebar collapses into a bottom nav or hamburger menu on mobile.
+Features
+Feature	Description
+Smart Email Generator	Generates professional emails in Formal, Friendly, or Persuasive tones based on user-provided context and key points.
+Meeting Notes Summarizer	Converts raw meeting notes into a structured summary, decisions list, action items (with owners), and deadlines.
+AI Task Planner / Scheduler	Turns a raw task list into a prioritized daily or weekly schedule with a stated rationale for the ordering.
 
-Design style: Clean, modern SaaS aesthetic generous white space, a single accent color (soft blue or teal), rounded cards, subtle shadows, sans-serif typography (Inter or similar). Should feel like Notion or Linear, not like a generic AI chatbot wrapper.
+All AI outputs are editable before use, and the app includes a persistent Responsible AI disclaimer.
 
-Feature 1 — Smart Email Generator
+Tools Used
+Lovable AI — application scaffolding and UI generation
+[Anthropic Claude API / OpenAI API] — underlying AI model for feature responses (update with whichever you actually use)
+React (via Lovable) — frontend framework
+GitHub — version control and repository hosting
+Prompt Engineering
 
-Input fields: recipient/context, key points (textarea), tone selector (Formal / Friendly / Persuasive), purpose (Request / Follow-up / Apology / Announcement / Other).
+Each feature is powered by a dedicated, structured system prompt (role + task + inputs + rules + output format) designed to keep outputs consistent and reduce hallucination. Full prompts are documented in /prompts (or link to your prompts file).
 
-Output: a generated email in an editable text box with a "Copy" and "Regenerate" button.
+Responsible AI Practices
+Every AI-generated output is clearly editable, not auto-submitted or auto-sent.
+A visible disclaimer reminds users that AI-generated content may contain inaccuracies and should be reviewed before use.
+Users are warned not to enter confidential or personal data into any of the tools.
+Prompts constrain outputs to only what's explicitly stated in the user's input, reducing fabricated names, dates, or facts.
+Setup Instructions
+Clone the repository:
+   git clone https://github.com/larnie-mash/AI-Productivity-Assistant.git
+   cd AI-Productivity-Assistant
+Install dependencies:
+   npm install
+Add your API key to a .env file (if calling the AI API directly rather than via Lovable's built-in integration):
+   VITE_AI_API_KEY=your_api_key_here
+Run the development server:
+   npm run dev
 
-Show a small "AI Prompt Used" collapsible section so the underlying prompt is visible (good for demonstrating prompt engineering).
+This project was built using Lovable. You can also continue developing it directly in the Lovable editor, where changes sync automatically back to this repository.
 
-Feature 2 — Meeting Notes Summarizer
+Team Members
+Rhulani "Lani" Mashele
+License
 
-Input: large textarea (or paste) for raw meeting notes/transcript.
-
-Output: three clearly separated sections  Summary, Action Items (with owner if mentioned), Decisions Made, and Deadlines/Dates mentioned.
-
-Editable output, with a "Copy as Markdown" button.
-
-Feature 3 — AI Task Planner / Scheduler
-
-Input: a list of tasks (one per line) with optional deadlines/priority notes, plus a toggle for Daily vs Weekly view.
-
-Output: a prioritized schedule broken into time blocks or days, with a short rationale for the prioritization order.
-
-Display as an editable list/table, not just plain text.
-
-Cross-cutting requirements:
-
-Every AI output must be editable before the user copies/uses it.
-
-A persistent, non-intrusive Responsible AI disclaimer (footer or modal): AI-generated content may be inaccurate and should be reviewed before use; no confidential/personal data should be entered.
-
-Loading states while AI responses generate.
-
-Consistent card-based layout across all three feature pages.
-
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://mind-work-suite.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/79526a06-1dcb-4a76-86b2-33fabedc46a7).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+This project was built for educational purposes as part of the CAPACITI program.
